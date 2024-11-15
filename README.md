@@ -16,6 +16,11 @@ Example: `'gisktzh/gb3-web_ui'`
 
 Now, if the bot is running for the first time after adding your repository it will scan the repository for the `renovate.json` configuration. It will automatically create a pull request containing an initial configuration if none is found. You have to approve and merge this PR manually before Renovate will start updating your dependencies.
 
+> **Note:** To enable automerge to work the following repository settings must be set:
+> - `Settings` -> `General` -> `Pull Requests` -> `Allow auto-merge Loading`
+> - `Settings` -> `Rules` -> `Rulesets` -> `Branch Rules` -> `Require merge queue`
+> - The account that runs `Renovate` must have the permission to bypass required reviews
+
 ## How does it work?
 There is an Github action based on `.github/workflows/main.yml` that runs the Renovate bot daily. The bot will operate according to the configuration written in `renovate-config.js` file. This file contains a list of all repositories that will be checked/updated automatically.
 
