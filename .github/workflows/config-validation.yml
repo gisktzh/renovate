@@ -1,0 +1,29 @@
+name: Renovate config validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  validate:
+    name: Run Renovate config validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Run validation
+        run: |
+          npm ci
+          npm run validate-config
