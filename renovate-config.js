@@ -5,6 +5,6 @@ module.exports = {
         'gisktzh/gb3-web_ui',
         'gisktzh/gb3-search_elastic',
         'gisktzh/gb3-cms',
-        // 'gisktzh/gb3-testcases',
+        'gisktzh/gb3-testcases',
     ],
 };
