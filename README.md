@@ -18,8 +18,9 @@ Now, if the bot is running for the first time after adding your repository it wi
 
 > **Note:** To enable automerge to work the following repository settings must be set:
 > - `Settings` -> `General` -> `Pull Requests` -> `Allow auto-merge Loading`
-> - `Settings` -> `Rules` -> `Rulesets` -> `Branch Rules` -> `Require merge queue`
 > - The account that runs `Renovate` must have the permission to bypass required reviews
+> - (Optional) `Settings` -> `Rules` -> `Rulesets` -> `Branch Rules` -> `Require merge queue` \
+>   _Don't forget to add `on: (...) merge_group:` to your GitHub action configuration if you enable the merge queue_
 
 ## How does it work?
 There is an Github action based on `.github/workflows/main.yml` that runs the Renovate bot daily. The bot will operate according to the configuration written in `renovate-config.js` file. This file contains a list of all repositories that will be checked/updated automatically.
