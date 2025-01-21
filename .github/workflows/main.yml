@@ -4,8 +4,8 @@ on:
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
     # string has to be quoted.
-    - cron: '0 0-5 * * *'
-
+    #- cron: '0 0-5 * * *'
+    - cron: '0 9-12 * * *'
 jobs:
   renovate:
     runs-on: ubuntu-latest
