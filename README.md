@@ -3,7 +3,7 @@ This repository contains all configuration files and Github actions to run the R
 
 > [!CAUTION]
 > The [scheduling](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule) mechanism is rather wonky and has some intricacies to keep in mind.
-> * The scheduled workflow is disabled if there is no action (e.g. commits) to the repository within 60 days. An email will be sent to *the last committer of the given workflow* some time before.
+> * The scheduled workflow is disabled if there is no action (e.g. commits) to the repository within 60 days. An email will be sent to *the last committer of the given workflow* some time before. The workflows can be reenabled in the details of the given workflow.
 > * **Important:** If the last person to change the workflow file is removed from the repository (be it by access removal, or also by changing their email address), **the workflows will silently no longer be executed**. This can only be reactivated by changing the `- cron: ` part in the workflow, and yes, it needs a changed schedule, otherwise it will not be picked up.
 > * The supplied `renovate_token` can produce issues as well, and also rais authentication errors. If so, a new token has to be created; and this might also be connected to the aforementioned user changes.
 
