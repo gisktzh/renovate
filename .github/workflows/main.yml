@@ -1,18 +1,26 @@
 name: Renovate
+
 on:
   workflow_dispatch:
+    inputs:
+      hourly_limit:
+        description: 'Sets the hourly PR limit in renovate; useful to override the default (2/hr) after the action was disabled for a longer time'
+        required: false
+        type: string
   schedule:
-    # The "*" (#42, asterisk) character has special semantics in YAML, so this
-    # string has to be quoted.
-    - cron: '0 0-5 * * *'
+    - cron: '0 0-5 * * *' # Run every hour from 00:00 to 05:00 UTC
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v40.3.5
         with:
           configurationFile: renovate-config.js
           token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          RENOVATE_PR_HOURLY_LIMIT: ${{ inputs.hourly_limit }}
